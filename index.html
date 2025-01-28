@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💖</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ffafcc, #ffc3a0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .page {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+            height: 80vh;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+            overflow-y: auto;
+        }
+
+        .page.active {
+            display: flex;
+        }
+
+        h1, h2 {
+            color: #d147a3;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            background: #ff69b4;
+            color: white;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        #noButton {
+    position:absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: top 0.3s ease, left 0.3s ease;
+    align-items:center;
+    justify-content: center;
+}
+
+
+        .flowers {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .flowers img {
+            width: 200px;
+            height: auto;
+            animation:both;
+            justify-content:center;
+            align-items: center;
+        }
+
+        .heart {
+            font-size: 3rem;
+            color: #ff69b4;
+            margin-top: 10px;
+            animation: heartbeat 1s infinite;
+        }
+
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .option {
+            width: 120px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .option img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .option img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .option p {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .summary {
+            color: #555;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .footer {
+            margin-top: auto;
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes blossom {
+            from { opacity: 0.5; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes heartbeat {
+            from { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            to { transform: scale(1); }
+        }
+
+
+        /* new */
+
+        /* new */
+    </style>
+</head>
+<body>
+    <div class="page active" id="intro-page">
+        <h2>Will You Be My Valentine? 🌹</h2>
+        <div class="heart">❤️</div>
+        <div class="flowers">
+            <img src="pics valentine/milk-and-mocha-hugs.gif" alt="Flower 1">
+            <img src="pics valentine/pliss-adorable.gif" alt="gif 2">
+            </div>
+
+        <button onclick="nextPage('date-page')">Yes, for sure! 💖</button> <br>
+        <button id="noButton">No</button>
+
+    </div>
+
+    <!-- new code -->
+
+    <!-- last-->
+
+    <div class="page" id="date-page">
+        <h2>When can I steal you away from your busy schedule my spicy keema noodles? 📅</h2>
+        <input type="date" id="date">
+        <button onclick="nextPage('dinner-page')">Next</button>
+        <img height="300" src="pics valentine/giphy.webp" alt="cat">
+
+    </div>
+
+    
+
+    <div class="page" id="dinner-page">
+        <h2>What's your preference from the menu my gorgeous lady😇</h2>
+        <div class="options">
+            <div class="option" onclick="selectOption('dinner', 'Thukpa')">
+                <img src="pics valentine/IMG_4732.jpg" alt="Thukpa">
+                <p>Thukpa</p>
+            </div>
+            <div class="option" onclick="selectOption('dinner', 'MoMo')">
+                <img height=150 src="pics valentine/Easy-Chicken-Momo-Dumplings-Sajilo-Kukhura-ko-Momo-सजिलो-कुखुराको-मम-300x300.jpg" alt="momo">
+                <p>MoMo</p>
+            </div>
+            <div class="option" onclick="selectOption('dinner', 'Laphing')">
+                <img height=150 src="pics valentine/images.jpg" alt="Laphing">
+                <p>Laphing</p>
+            </div>
+
+            <div class="option" onclick="selectOption('dinner', 'Pizza')">
+                <img height=150 src="pics valentine/achari-paneer-pizza_FT-MAG-RECIPE-0324-d84f4716e7f649ecab907d01471a8f89.jpg" alt="Pizza">
+                <p>Pizza</p>
+            </div>
+
+            <div class="option" onclick="selectOption('dinner', 'JO MIlega Wahi Thuslengey')">
+                <img height=150 src="pics valentine/mukbang-foodie-beauty.gif" alt="moti">
+                <p>JO MIlega Wahi Thuslengey</p>
+            </div>
+
+
+
+
+            
+        </div>
+        <button onclick="nextPage('place-page')">Next</button>
+    </div>
+
+    <div class="page" id="place-page">
+        <h2>Chalti hey kya 9 se 12😎! kata jane kanxi?</h2>
+        <div class="options">
+            <div class="option" onclick="selectOption('place', 'Park and nature')">
+                <img height=150 src="pics valentine/Central-Park-trees-fall-850x635.jpg" alt="Park">
+                <p>Park and nature</p>
+            </div>
+            <div class="option" onclick="selectOption('place', 'Mall')">
+                <img height=150 src="pics valentine/gettyimages-849220866-612x612.jpg" alt="Mall">
+                <p>Mall</p>
+            </div>
+            <div class="option" onclick="selectOption('place', 'funpark')">
+                <img height="150" src="pics valentine/Kathmandu-Fun-Valley.png" alt="funpark">
+                <p>funpark</p>
+            </div>
+
+            <div class="option" onclick="selectOption('place', 'mandir')">
+                <img height=150 src="pics valentine/download.jpg" alt="mandir">
+                <p>mandir</p>
+            </div>
+
+            <div class="option" onclick="selectOption('place', 'Heramla')">
+                <img height150 src="pics valentine/patrick.gif" alt="Heramla">
+                <p>Heramla</p>
+            </div>
+            
+
+        </div>
+        <button onclick="nextPage('activity-page')">Next</button>
+    </div>
+
+    <div class="page" id="activity-page">
+        <h2>choose one my gurl</h2>
+        <div class="options">
+            <div class="option" onclick="selectOption('activity', 'kiss')">
+                <img height=200 src="pics valentine/kiss.webp" alt="kiss">
+                <p><big>kiss</big></p>
+            </div>
+            <div class="option" onclick="selectOption('activity', 'slap')">
+                <img height=200 src="pics valentine/slap.gif" alt="slap">
+                <p><big>slap</big></p>
+            </div>
+            <div class="option" onclick="selectOption('activity', 'or Nap')">
+                <img height=200 src="pics valentine/giphy.gif" alt="or Nap">
+                <p><big>or Nap</big></p>
+            </div>
+        </div>
+        <button onclick="finalizePlan()">Finalize Plan</button>
+    </div>
+
+    <div class="page" id="summary-page">
+        <h2>"My love,my partner in crime, just wanted to say thank you for being amazing. You make my life brighter, and I am so grateful for every moment we share. You make my soul shine bright".Be my light and I'll become your shadow,always by ur side._your's Anuja💌</h2>
+        <div class="summary" id="summary"></div>
+
+        <audio controls>
+            <source src="pics valentine/Can-T-Help-Falling-In-Love.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+          </audio>
+          
+    </div>
+
+    
+
+
+    <script>
+        const selections = { dinner: '', place: '', activity: '' };
+
+        function nextPage(pageId) {
+            const activePage = document.querySelector('.page.active');
+            activePage.classList.remove('active');
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function selectOption(key, value) {
+            selections[key] = value;
+            alert(`${value} selected!`);
+        }
+
+        function finalizePlan() {
+            const date = document.getElementById('date').value;
+            if (date && selections.dinner && selections.place && selections.activity) {
+                const summaryText = `
+                    <p><strong>Date:</strong> ${date}</p>
+                    <p><strong>Dinner:</strong> ${selections.dinner}</p>
+                    <p><strong>Place:</strong> ${selections.place}</p>
+                    <p><strong>Activity:</strong> ${selections.activity}</p>
+                `;
+                document.getElementById('summary').innerHTML = summaryText;
+                nextPage('summary-page');
+            } else {
+                alert('Please fill out all fields before finalizing!');
+            }
+        }
+
+        // for no button
+
+        const noButton = document.getElementById('noButton');
+
+noButton.addEventListener('click', () => {
+    const screenWidth = window.innerWidth - noButton.offsetWidth;
+    const screenHeight = window.innerHeight - noButton.offsetHeight;
+    const randomX = Math.random() * screenWidth;
+    const randomY = Math.random() * screenHeight;
+
+    noButton.style.left = `${randomX}px`;
+    noButton.style.top = `${randomY}px`;
+});
+
+    </script>
+</body>
